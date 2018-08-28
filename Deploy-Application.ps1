@@ -140,6 +140,8 @@ Try {
 
 		## <Perform Installation tasks here>
 		$matlabroot = Split-Path -Path 'C:\Program Files*\MATLAB\R20*\toolbox\local\matlabrc.m' -Resolve
+		# Install DirectX9c Runtimes
+		Execute-Process -Path "$dirFiles\DirectX\DXSetup.exe" -Parameters '/silent' -WindowStyle 'Hidden'
 		# Copy program files
 		Copy-Item $dirfiles\NIMH_MonkeyLogic_2 -Destination C:\MonkeyLogic -Recurse
 		# Make copy of matlabrc.m to put back in case of uninstall
